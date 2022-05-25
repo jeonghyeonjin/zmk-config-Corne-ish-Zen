@@ -48,27 +48,27 @@
             };
             combo_n6 {
                 timeout-ms = <25>;
-                key-positions = <5 6>;
+                key-positions = <6 7>;
                 bindings = <&kp N6>;
             }; 
             combo_n7 {
                 timeout-ms = <25>;
-                key-positions = <6 7>;
+                key-positions = <7 8>;
                 bindings = <&kp N7>;
             }; 
             combo_n8 {
                 timeout-ms = <25>;
-                key-positions = <7 8>;
+                key-positions = <8 9>;
                 bindings = <&kp N8>;
             }; 
             combo_n9 {
                 timeout-ms = <25>;
-                key-positions = <8 9>;
+                key-positions = <9 10>;
                 bindings = <&kp N9>;
             }; 
             combo_n0 {
                 timeout-ms = <25>;
-                key-positions = <9 10>;
+                key-positions = <10 11>;
                 bindings = <&kp N0>;
             };
             combo_lpar {
@@ -158,7 +158,7 @@
    &kp TAB   &kp Q       &kp W         &kp E         &kp R         &kp T     &kp Y   &kp U       &kp I          &kp O        &kp P          &kp BSPC
    &kp LSHFT &am LCTRL A &am LGUI S    &am LALT D    &as LSHFT F   &kp G     &kp H   &as RSHFT J &am RALT K     &am RGUI L   &am RCTRL SEMI &kp SQT
    &kp LCTRL &kp Z       &kp X         &kp C         &kp V         &kp B     &kp N   &kp M       &kp COMMA      &kp DOT      &kp FSLH       &kp ESC
-                                       &kp LGUI      &lt 2 SPACE   &lt 3 SPACE   &lt 1 RET &lt 1 RET &kp RALT
+                                       &kp LGUI      &lt 2 SPACE   &lt 3 SPACE   &lt 3 RET &lt 1 RET &kp RALT
                         >;
                 };
                 number_layer {
@@ -167,7 +167,7 @@
    &trans     &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &trans
    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans   &trans   &trans &trans    &trans &trans
    &trans     &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                          	        &kp LGUI      &lt 2 SPACE &mo 4   &lt 1 RET &lt 1 RET &kp RALT
+                          	        &kp LGUI      &lt 2 SPACE &mo 4   &lt 3 RET &lt 1 RET &kp RALT
                         >;
                 };
 
@@ -177,7 +177,7 @@
    &trans  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
    &trans  &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
    &trans  &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	      &kp LGUI      &lt 2 SPACE   &lt 3 SPACE   &lt 1 RET &lt 1 RET &kp RALT
+                    	      &kp LGUI      &lt 2 SPACE   &lt 3 SPACE   &lt 3 RET &lt 1 RET &kp RALT
                         >;
                 };
 
@@ -187,7 +187,7 @@
    &trans &trans   &trans   &kp UP    &trans      &trans      &trans &trans    &kp UP      &trans &trans &trans
    &trans &trans   &kp LEFT &kp DOWN  &kp RIGHT   &trans      &trans &kp LEFT  &kp DOWN    &kp RIGHT &trans &trans
    &trans &trans   &trans   &trans    &trans      &trans      &trans &trans    &trans      &trans &trans &trans
-                    	      &kp LGUI      &lt 2 SPACE   &lt 3 SPACE   &lt 1 RET &lt 1 RET &kp RALT
+                    	      &kp LGUI      &lt 2 SPACE   &lt 3 SPACE   &lt 3 RET &lt 1 RET &kp RALT
                         >;
                 };
                 
@@ -197,7 +197,7 @@
    &kp F1 &kp F2   &kp F3   &kp F4    &kp F5      &kp F6      &kp F7 &kp F8    &kp F9      &kp F10 &kp F11 &kp F12
    &trans &trans   &trans   &trans    &trans      &trans      &trans &trans    &trans      &trans &trans &trans
    &trans &trans   &trans   &trans    &trans      &trans      &trans &trans    &trans      &trans &trans &trans
-                    	 &kp LGUI      &lt 2 SPACE   &lt 3 SPACE   &lt 1 RET &lt 1 RET &kp RALT
+                    	 &kp LGUI      &lt 2 SPACE   &lt 3 SPACE   &lt 3 RET &lt 1 RET &kp RALT
                         >;
                 };
         };
