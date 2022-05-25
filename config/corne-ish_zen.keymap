@@ -14,68 +14,121 @@
 
         combos {
             compatible = "zmk,combos";
-            combo_tab {
-                timeout-ms = <75>;
-                key-positions = <10 14>;
-                bindings = <&kp TAB>;
-            };
             combo_esc {
-                timeout-ms = <75>;
-                key-positions = <0 4>;
+                timeout-ms = <50>;
+                key-positions = <0 1>;
                 bindings = <&kp ESC>;
+            };
+            combo_n1 {
+                timeout-ms = <50>;
+                key-positions = <1 13>;
+                bindings = <&kp N1>;
+            };
+            combo_n2 {
+                timeout-ms = <50>;
+                key-positions = <2 14>;
+                bindings = <&kp N2>;
+            };
+            combo_n3 {
+                timeout-ms = <50>;
+                key-positions = <3 15>;
+                bindings = <&kp N3>;
+            };
+            combo_n4 {
+                timeout-ms = <50>;
+                key-positions = <4 16>;
+                bindings = <&kp N4>;
+            };
+            combo_n5 {
+                timeout-ms = <50>;
+                key-positions = <5 17>;
+                bindings = <&kp N5>;
+            };
+            combo_n6 {
+                timeout-ms = <50>;
+                key-positions = <6 18>;
+                bindings = <&kp N6>;
             }; 
-            combo_3_l {
-                timeout-ms = <75>;
+            combo_n7 {
+                timeout-ms = <50>;
+                key-positions = <7 19>;
+                bindings = <&kp N7>;
+            }; 
+            combo_n8 {
+                timeout-ms = <50>;
+                key-positions = <8 20>;
+                bindings = <&kp N8>;
+            }; 
+            combo_n9 {
+                timeout-ms = <50>;
+                key-positions = <9 21>;
+                bindings = <&kp N9>;
+            }; 
+            combo_n0 {
+                timeout-ms = <50>;
+                key-positions = <10 22>;
+                bindings = <&kp N0>;
+            };
+            combo_lpar {
+                timeout-ms = <50>;
+                key-positions = <14 15>;
+                bindings = <&kp LPAR>;
+            };
+            combo_lbkt {
+                timeout-ms = <50>;
+                key-positions = <15 16>;
+                bindings = <&kp LBKT>;
+            };
+            combo_lbrc {
+                timeout-ms = <50>;
+                key-positions = <16 17>;
+                bindings = <&kp LBRC>;
+            };
+            combo_rpar {
+                timeout-ms = <50>;
+                key-positions = <20 21>;
+                bindings = <&kp RPAR>;
+            };
+            combo_rbkt {
+                timeout-ms = <50>;
+                key-positions = <19 20>;
+                bindings = <&kp RBKT>;
+            };
+            combo_rbrc {
+                timeout-ms = <50>;
+                key-positions = <18 19>;
+                bindings = <&kp RBRC>;
+            };
+            combo_minus {
+                timeout-ms = <50>;
+                key-positions = <30 31>;
+                bindings = <&kp MINUS>;
+            };
+            combo_equal {
+                timeout-ms = <50>;
                 key-positions = <31 32>;
-                bindings = <&sl 2>;
-            };
-            combo_3_r {
-                timeout-ms = <75>;
-                key-positions = <33 34>;
-                bindings = <&sl 2>;
-            };
-            homerow_ctrl_l {
-                timeout-ms = <75>;
-                key-positions = <10 0>;
-                bindings = <&sk LCTRL>;
-            };
-            homerow_alt_l {
-                timeout-ms = <75>;
-                key-positions = <11 1>;
-                bindings = <&sk LALT>;
-            };
-            homerow_gui_l {
-                timeout-ms = <75>;
-                key-positions = <12 2>;
-                bindings = <&sk LGUI>;
-            };
-            homerow_shft_l {
-                timeout-ms = <75>;
-                key-positions = <13 3>;
-                bindings = <&sk LSHFT>;
-            };
-            homerow_ctrl_r {
-                timeout-ms = <75>;
-                key-positions = <19 9>;
-                bindings = <&sk LCTRL>;
-            };
-            homerow_alt_r {
-                timeout-ms = <75>;
-                key-positions = <18 8>;
-                bindings = <&sk LALT>;
-            };
-            homerow_gui_r {
-                timeout-ms = <75>;
-                key-positions = <17 7>;
-                bindings = <&sk LGUI>;
-            };
-            homerow_shft_r {
-                timeout-ms = <75>;
-                key-positions = <16 6>;
-                bindings = <&sk LSHFT>;
+                bindings = <&kp EQUAL>;
             };
     };
         behaviors {
+            am: alpha_mods {
+                compatible = "zmk,behavior-hold-tap";
+                label = "ALPHA_MT";
+                #binding-cells = <2>;
+                tapping-term-ms = <250>;
+                quick-tap-ms = <150>;
+                flavor = "tap-preferred";
+                bindings = <&kp>, <&kp>;
+            };
+            as: alpha_shift {
+                compatible = "zmk,behavior-hold-tap";
+                label = "ALPHA_SFT";
+                #binding-cells = <2>;
+                tapping-term-ms = <200>;
+                quick-tap-ms = <150>;
+                flavor = "tap-preferred";
+                bindings = <&kp>, <&kp>;
+            };    
             hm: homerow_mods {
                 compatible = "zmk,behavior-hold-tap";
                 label = "HOMEROW_MODS";
@@ -97,39 +150,69 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U   &kp I     &kp O   &kp P    &kp BSPC
-   &kp LSHFT &kp A &kp S &kp D &kp F &kp G   &kp H &kp J   &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LCTRL &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M   &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &kp SPACE &mo 1   &mo 2 &kp RET &kp RALT
+   &kp TAB   &kp Q       &kp W         &kp E         &kp R         &kp T     &kp Y   &kp U       &kp I          &kp O        &kp P          &kp BSPC
+   &kp LSHFT &am LCTRL A &am LGUI S    &am LALT D    &as LSHFT F   &kp G     &kp H   &as RSHFT J &am RALT K     &am RGUI L   &am RCTRL SEMI &kp SQT
+   &kp LCTRL &kp Z       &kp X         &kp C         &kp V         &kp B     &kp N   &kp M       &kp COMMA      &kp DOT      &kp FSLH       &lt FUNC ESC
+                                       &kp LGUI      &lt SYM SPACE &mo NAV   &mo NUM &lt SYM RET &kp RALT
                         >;
                 };
-                lower_layer {
-                        label = "NUMBER";
+                number_layer {
+                        label = "NUM";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
 // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                          	        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+   &trans     &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &trans
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans   &trans   &trans &trans    &trans &trans
+   &trans     &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
+                          	        &kp LGUI      &lt SYM SPACE &mo NAV   &mo NUM &lt SYM RET &kp RALT
                         >;
                 };
 
-                raise_layer {
-                        label = "SYMBOL";
+                symbol_layer {
+                        label = "SYM";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &trans  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
+   &trans  &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
+   &trans  &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+                    	     &kp LGUI      &lt SYM SPACE &mo NAV   &mo NUM &lt SYM RET &kp RALT
+                        >;
+                };
+
+                nav_layer {
+                        label = "NAV";
+// -----------------------------------------------------------------------------------------
+// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+//                    | GUI |     | SPC |   | ENT |     | ALT |
+                        bindings = <
+   &trans &trans   &trans   &kp UP    &trans      &trans      &trans &trans    &kp UP      &trans &trans &trans
+   &trans &trans   &kp LEFT &kp DOWN  &kp RIGHT   &trans      &trans &kp LEFT  &kp DOWN    &kp RIGHT &trans &trans
+   &trans &trans   &trans   &trans    &trans      &trans      &trans &trans    &trans      &trans &trans &trans
+                    	     &kp LGUI      &lt SYM SPACE &mo NAV   &mo NUM &lt SYM RET &kp RALT
+                        >;
+                };
+                
+                func_layer {
+                        label = "FUNC";
+// -----------------------------------------------------------------------------------------
+// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+//                    | GUI |     | SPC |   | ENT |     | ALT |
+                        bindings = <
+   &kp F1 &kp F2   &kp F3   &kp F4    &kp F5      &kp F6      &kp F7 &kp F8    &kp F9      &kp F10 &kp F11 &kp F12
+   &trans &trans   &trans   &trans    &trans      &trans      &trans &trans    &trans      &trans &trans &trans
+   &trans &trans   &trans   &trans    &trans      &trans      &trans &trans    &trans      &trans &trans &trans
+                    	     &kp LGUI      &lt SYM SPACE &mo NAV   &mo NUM &lt SYM RET &kp RALT
                         >;
                 };
         };
