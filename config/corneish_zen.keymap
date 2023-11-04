@@ -17,57 +17,77 @@
 #define NAV 3
 #define FUN 4
 
+#define QUICK_TAP_MS 175
+
+&mt {
+  quick-tap-ms = <80>;
+//   global-quick-tap;
+  flavor = "balanced";
+  tapping-term-ms = <150>;
+};
+
+&sk {
+		// don't release mods on other mods presses
+    ignore-modifiers;
+};
+
+&lt {  // layer-tap config
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+};
+
 / {
 
         combos {
             compatible = "zmk,combos";
             combo_n1 {
-                timeout-ms = <25>;
+                timeout-ms = <40>;
                 key-positions = <1 13>;
                 bindings = <&kp N1>;
             };
             combo_n2 {
-                timeout-ms = <25>;
+                timeout-ms = <40>;
                 key-positions = <2 14>;
                 bindings = <&kp N2>;
             };
             combo_n3 {
-                timeout-ms = <25>;
+                timeout-ms = <40>;
                 key-positions = <3 15>;
                 bindings = <&kp N3>;
             };
             combo_n4 {
-                timeout-ms = <25>;
+                timeout-ms = <40>;
                 key-positions = <4 16>;
                 bindings = <&kp N4>;
             };
             combo_n5 {
-                timeout-ms = <25>;
+                timeout-ms = <40>;
                 key-positions = <5 17>;
                 bindings = <&kp N5>;
             };
             combo_n6 {
-                timeout-ms = <25>;
+                timeout-ms = <40>;
                 key-positions = <6 18>;
                 bindings = <&kp N6>;
             }; 
             combo_n7 {
-                timeout-ms = <25>;
+                timeout-ms = <40>;
                 key-positions = <7 19>;
                 bindings = <&kp N7>;
             }; 
             combo_n8 {
-                timeout-ms = <25>;
+                timeout-ms = <40>;
                 key-positions = <8 20>;
                 bindings = <&kp N8>;
             }; 
             combo_n9 {
-                timeout-ms = <25>;
+                timeout-ms = <40>;
                 key-positions = <9 21>;
                 bindings = <&kp N9>;
             }; 
             combo_n0 {
-                timeout-ms = <25>;
+                timeout-ms = <40>;
                 key-positions = <10 22>;
                 bindings = <&kp N0>;
             };
@@ -81,6 +101,11 @@
                 key-positions = <30 31>;
                 bindings = <&kp EQUAL>;
             };
+            combo_undo {
+			    timeout-ms = <25>;
+			    key-positions = <26 27>;
+			    bindings = <&kp LC(Z)>;
+		};
     };
         behaviors {
             am: alpha_mods {
@@ -125,49 +150,49 @@
                 default_layer {
                         label = "DEF";
                         bindings = <
-   &kp TAB   &kp Q       &kp W         &kp E         &kp R         &kp T     &kp Y   &kp U       &kp I          &kp O        &kp P          &kp BSPC
-   &kp LSHFT &am LCTRL A &am LGUI S    &am LALT D    &as LSHFT F   &kp G     &kp H   &as RSHFT J &am RALT K     &am RGUI L   &am RCTRL SEMI &kp SQT
-   &kp LCTRL &kp Z       &kp X         &kp C         &kp V         &kp B     &kp N   &kp M       &kp COMMA      &kp DOT      &kp FSLH       &lt 4 ESC
-                                       &kp LGUI      &lt 3 SPACE   &lt 2 SPACE   &lt 1 RET &lt 3 RET &kp BSPC
+   &kp TAB   &kp Q       &kp W         &kp E         &kp R         &kp T         &kp Y      &kp U       &kp I          &kp O        &kp P          &kp BSPC
+   &kp LSHFT &kp A       &kp S         &kp D         &kp F         &kp G         &kp H      &kp J       &kp K          &kp L        &kp SEMI       &kp SQT
+   &kp LCTRL &kp Z       &kp X         &kp C         &kp V         &kp B         &kp N      &kp M       &kp COMMA      &kp DOT      &kp FSLH       &kp LGUI
+                                       &kp LALT      &lt 3 SPACE   &lt 2 SPACE   &lt 1 RET  &lt 3 RET   &kp BSPC
                         >;
                 };
                 number_layer {
                         label = "NUM";
                         bindings = <
-   &trans     &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &trans
-   &trans     &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &trans
-   &trans     &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                          	        &kp LGUI      &lt 3 SPACE   &lt 2 SPACE   &lt 1 RET &lt 3 RET &kp RALT
+   &kp ESC    &kp N1       &kp N2       &kp N3       &kp N4        &kp N5        &kp N6     &kp N7      &kp N8      &kp N9    &kp N0 &trans
+   &trans     &kp N1       &kp N2       &kp N3       &kp N4        &kp N5        &kp N6     &kp N7      &kp N8      &kp N9    &kp N0 &trans
+   &trans     &trans       &trans       &trans       &trans        &trans        &trans     &trans      &trans      &trans    &trans &trans
+                          	            &trans       &trans        &lt 4 SPACE   &trans     &trans      &kp DEL
                         >;
                 };
 
                 symbol_layer {
                         label = "SYM";
                         bindings = <
-   &trans  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &trans  &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &trans  &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	      &kp LGUI      &lt 3 SPACE   &lt 2 SPACE   &lt 1 RET &lt 3 RET &kp RALT
+   &kp ESC   &kp EXCL    &kp AT      &kp HASH     &kp DLLR      &kp PRCNT    &kp CARET    &kp AMPS     &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
+   &trans    &trans      &trans      &trans       &trans        &trans       &kp MINUS    &kp EQUAL    &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
+   &trans    &trans      &trans      &trans       &trans        &trans       &kp UNDER    &kp PLUS     &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+                    	             &trans       &trans        &trans       &lt 4 RET    &trans       &kp DEL
                         >;
                 };
 
                 nav_layer {
                         label = "NAV";
                         bindings = <
-   &trans &trans   &trans   &kp UP    &trans      &trans      &trans &trans    &kp UP      &trans &trans &trans
-   &trans &trans   &kp LEFT &kp DOWN  &kp RIGHT   &trans      &trans &kp LEFT  &kp DOWN    &kp RIGHT &trans &trans
-   &trans &trans   &trans   &trans    &trans      &trans      &trans &trans    &trans      &trans &trans &trans
-                    	      &kp LGUI      &lt 3 SPACE   &lt 2 SPACE   &lt 1 RET &lt 3 RET &kp RALT
+   &trans    &trans   &kp N7        &kp N8      &kp N9          &trans      &trans      &trans      &kp UP      &trans      &trans  &trans
+   &trans    &trans   &kp N4        &kp N5      &kp N6          &trans      &trans      &kp LEFT    &kp DOWN    &kp RIGHT   &trans  &trans
+   &trans    &trans   &kp N1        &kp N2      &kp N3          &trans      &trans      &trans      &trans      &trans      &trans  &trans
+                    	            &trans      &trans          &trans      &trans      &trans      &kp DEL
                         >;
                 };
                 
                 func_layer {
                         label = "FUN";
                         bindings = <
-   &kp F1 &kp F2   &kp F3   &kp F4    &kp F5      &kp F6      &kp F7 &kp F8    &kp F9      &kp F10 &kp F11 &kp F12
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &trans &trans    &trans      &trans &trans &trans
-   &trans &trans   &trans   &trans    &trans      &trans      &trans &trans    &trans      &trans &trans &trans
-                    	 &kp LGUI      &lt 3 SPACE   &lt 2 SPACE   &lt 1 RET &lt 3 RET &kp RALT
+   &kp F1       &kp F2          &kp F3          &kp F4          &kp F5          &kp F6          &kp F7      &kp F8      &kp F9      &kp F10   &kp F11     &kp F12
+   &bt BT_CLR   &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &trans      &trans      &trans      &trans    &trans      &trans
+   &trans       &trans          &trans          &trans          &trans          &trans          &trans      &trans      &trans      &trans    &trans      &trans
+                    	                        &trans          &trans          &trans          &trans      &trans      &trans
                         >;
                 };
         };
